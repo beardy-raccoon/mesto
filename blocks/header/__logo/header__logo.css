@@ -1,0 +1,7 @@
+.header__logo {
+  background-image: url(../../../images/logo-mesto.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-width: 142px;
+  min-height: 33px;
+}
