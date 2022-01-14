@@ -1,0 +1,27 @@
+.element {
+  background: #FFF;
+  border-radius: 10px;
+  width: 22vw;
+  max-width: 282px;
+}
+
+@media screen and (max-width: 975px) {
+  .element {
+    width: 28.5vw;
+    max-width: unset;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .element {
+    width: 47vw;
+    max-width: unset;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .element {
+    max-width: 282px;
+    width: 100%;
+  }
+}
