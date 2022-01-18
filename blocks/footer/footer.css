@@ -5,8 +5,22 @@
   margin: 0 auto;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 891px) {
+  .footer {
+    max-width: 68.75%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 591px) {
   .footer {
     padding: 48px 19px 36px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .footer {
+    text-align: unset;
+    max-width: unset;
   }
 }
