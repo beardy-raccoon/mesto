@@ -27,6 +27,8 @@ function formSubmitHandler (evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = aboutInput.value;
+    popup.classList.remove('popup_opened');
+    popupForm.classList.remove('popup__form_opened');
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
