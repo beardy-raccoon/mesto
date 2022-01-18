@@ -16,3 +16,17 @@ function closePopup () {
 profileEditButton.addEventListener('click', openPopup);
 
 popupCloseButton.addEventListener('click', closePopup);
+
+let formElement = document.querySelector('.popup__form');
+let nameInput = document.querySelector('.popup__name');
+let aboutInput = document.querySelector('.popup__about');
+let profileTitle = document.querySelector('.profile__title');
+let profileSubtitle = document.querySelector('.profile__subtitle');
+
+function formSubmitHandler (evt) {
+    evt.preventDefault();
+    profileTitle.textContent = nameInput.value;
+    profileSubtitle.textContent = aboutInput.value;
+}
+
+formElement.addEventListener('submit', formSubmitHandler);
