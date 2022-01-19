@@ -17,6 +17,12 @@ profileEditButton.addEventListener('click', openPopup);
 
 popupCloseButton.addEventListener('click', closePopup);
 
+popup.addEventListener('click', function (e) {
+  if (e.target === e.currentTarget) {
+    closePopup();
+  }
+});
+
 let formElement = document.querySelector('.popup__form');
 let nameInput = document.querySelector('.popup__name');
 let aboutInput = document.querySelector('.popup__about');
