@@ -18,7 +18,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 374px) {
   .footer {
     text-align: unset;
     max-width: unset;
