@@ -18,62 +18,63 @@
 
       <section class="profile">
         <div class="profile__container">
-          <img src="./images/avatar.png" class="profile__avatar" alt="Фото профиля">
+          <img src="./images/avatar.jpeg" class="profile__avatar" alt="Фото профиля">
           <div class="profile__info">
             <div class="profile__name-wraper">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
               <p class="profile__subtitle">Исследователь океана</p>
             </div>
-            <button type="button" class="profile__edit-button"></button>
+            <button type="button" aria-label="Редактировать" class="profile__edit-button"></button>
           </div>
         </div>
-        <button type="button" class="profile__add-button"></button>
+        <button type="button" aria-label="Добавить" class="profile__add-button"></button>
       </section>
 
       <section class="elements">
         <ul class="elements-list">
           <li class="element">
-            <img src="./images/karachaevsk.png" class="element__image"
+            <img src="./images/karachaevsk.jpeg" class="element__image"
               alt="Фото древней крепости в горах Карачаево-Черкессии">
             <div class="element__wrap">
               <h2 class="element__image-name">Карачаевск</h2>
-              <button type="button" class="element__like-button"></button>
+              <button type="button" aria-label="Нравится" class="element__like-button"></button>
             </div>
           </li>
           <li class="element">
-            <img src="./images/elbrus.png" class="element__image" alt="Вид на вершину горы Эльбрус с равнины">
+            <img src="./images/elbrus.jpeg" class="element__image" alt="Вид на вершину горы Эльбрус с равнины">
             <div class="element__wrap">
               <h2 class="element__image-name">Гора Эльбрус</h2>
-              <button type="button" class="element__like-button"></button>
+              <button type="button" aria-label="Нравится" class="element__like-button"></button>
             </div>
           </li>
           <li class="element">
-            <img src="./images/dombai.png" class="element__image" alt="Вид на горы в Домбае">
+            <img src="./images/dombai.jpeg" class="element__image" alt="Вид на горы в Домбае">
             <div class="element__wrap">
               <h2 class="element__image-name">Домбай</h2>
-              <button type="button" class="element__like-button"></button>
+              <button type="button" aria-label="Нравится" class="element__like-button"></button>
             </div>
           </li>
           <li class="element">
-            <img src="./images/elbrus.png" class="element__image" alt="Вид на вершину горы Эльбрус с равнины">
+            <img src="./images/kosa.jpeg" class="element__image" alt="Вид на побережье Куршской косы">
             <div class="element__wrap">
-              <h2 class="element__image-name">Гора Эльбрус</h2>
-              <button type="button" class="element__like-button"></button>
+              <h2 class="element__image-name">Куршская коса</h2>
+              <button type="button" aria-label="Нравится" class="element__like-button"></button>
             </div>
           </li>
           <li class="element">
-            <img src="./images/dombai.png" class="element__image" alt="Вид на горы в Домбае">
+            <img src="./images/murmansk.jpeg" class="element__image"
+              alt="Рыболовный сейнер в Мурманском порту в лучах Полярного сияния">
             <div class="element__wrap">
-              <h2 class="element__image-name">Домбай</h2>
-              <button type="button" class="element__like-button"></button>
+              <h2 class="element__image-name">Мурманск</h2>
+              <button type="button" aria-label="Нравится" class="element__like-button"></button>
             </div>
           </li>
           <li class="element">
-            <img src="./images/karachaevsk.png" class="element__image"
-              alt="Фото древней крепости в горах Карачаево-Черкессии">
+            <img src="./images/psircha.jpeg" class="element__image"
+              alt="Вид на железнодорожную платформу Псырцха в Абхазии">
             <div class="element__wrap">
-              <h2 class="element__image-name">Карачаевo-Черкессия</h2>
-              <button type="button" class="element__like-button"></button>
+              <h2 class="element__image-name">Платформа Псырцха</h2>
+              <button type="button" aria-label="Нравится" class="element__like-button"></button>
             </div>
           </li>
         </ul>
@@ -83,13 +84,15 @@
       <p class="footer__copyright" lang="en">&copy; 2022 Mesto Russia</p>
     </footer>
     <div class="popup">
-      <form action="#" method="get" class="popup__form">
-        <h3 class="popup__title">Редактировать профиль</h3>
-        <input type="text" name="name" class="popup__name" required placeholder="Жак-Ив Кусто">
-        <input type="text" name="about" class="popup__about" required placeholder="Исследователь океана">
-        <button type="submit" class="popup__submit-button">Сохранить</button>
-        <button type="button" class="popup__close-button"></button>
-      </form>
+      <div class="popup__container">
+        <form action="#" method="get" name="profile-edit" class="popup__form">
+          <h3 class="popup__title">Редактировать профиль</h3>
+          <input type="text" name="name" class="popup__input popup__input_name" required placeholder="Имя">
+          <input type="text" name="about" class="popup__input popup__input_about" required placeholder="О себе">
+          <button type="submit" aria-label="Сохранить" class="popup__submit-button">Сохранить</button>
+          <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
+        </form>
+      </div>
     </div>
   </div>
   <script src="./script/index.js"></script>

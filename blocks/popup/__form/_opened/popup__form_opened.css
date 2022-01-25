@@ -1,4 +1,0 @@
-.popup__form_opened {
-  transform: perspective(600px) translate(0px, 0px);
-  opacity: 1;
-}
