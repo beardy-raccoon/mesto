@@ -9,8 +9,6 @@ let aboutInput = popup.querySelector('.popup__input_type_about');
 
 const elementTemplate = document.querySelector('#element-template').content;
 const elementsList = document.querySelector('.elements-list');
-
-
 const initialCards = [
   {
     name: 'Саратов',
@@ -38,19 +36,33 @@ const initialCards = [
   },
 ];
 
+function renderCard(cardName, imageLink) {
+  const newCard = elementTemplate.cloneNode(true);
+  const elementImage = newCard.querySelector('.element__image');
+  elementImage.src = imageLink;
+  elementImage.alt = cardName;
+  newCard.querySelector('.element__image-name').textContent = cardName;
+  addListeners(newCard);
+  elementsList.appendChild(newCard);
+}
+
+function addListeners(el) {
+  el.querySelector('.element__delete-button').addEventListener('click', handleDelete);
+  el.querySelector('.element__like-button').addEventListener('click', handleLike);
+}
+
+function handleDelete(evt) {
+  evt.target.closest('.element').remove();
+}
+
+function handleLike(evt) {
+  evt.currentTarget.classList.toggle('element__like-button_active');
+}
+
 function render() {
   initialCards.forEach(function (item) {
     renderCard(item.name, item.link)
   });
-}
-
-
-function renderCard(cardName, imageLink) {
-  newCard = elementTemplate.cloneNode(true);
-  newCard.querySelector('.element__image-name').textContent = cardName;
-  newCard.querySelector('.element__image').src = imageLink;
-  newCard.querySelector('.element__image').alt = cardName;
-  elementsList.appendChild(newCard);
 }
 
 render();
