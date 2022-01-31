@@ -7,7 +7,53 @@ let popupForm = popup.querySelector('.popup__form');
 let nameInput = popup.querySelector('.popup__input_type_name');
 let aboutInput = popup.querySelector('.popup__input_type_about');
 
+const elementTemplate = document.querySelector('#element-template').content;
+const elementsList = document.querySelector('.elements-list');
 
+
+const initialCards = [
+  {
+    name: 'Саратов',
+    link: './images/saratov.jpeg'
+  },
+  {
+    name: 'Гудаури',
+    link: './images/gudauri.jpeg'
+  },
+  {
+    name: 'Венеция',
+    link: './images/venice.jpeg'
+  },
+  {
+    name: 'Куршская коса',
+    link: './images/kosa.jpeg'
+  },
+  {
+    name: 'Мурманск',
+    link: './images/murmansk.jpeg'
+  },
+  {
+    name: 'Платформа Псырцха',
+    link: './images/psircha.jpeg'
+  },
+];
+
+function render() {
+  initialCards.forEach(function (item) {
+    renderCard(item.name, item.link)
+  });
+}
+
+
+function renderCard(cardName, imageLink) {
+  newCard = elementTemplate.cloneNode(true);
+  newCard.querySelector('.element__image-name').textContent = cardName;
+  newCard.querySelector('.element__image').src = imageLink;
+  newCard.querySelector('.element__image').alt = cardName;
+  elementsList.appendChild(newCard);
+}
+
+render();
 
 function openPopup() {
   nameInput.value = profileTitle.textContent;
@@ -17,7 +63,6 @@ function openPopup() {
 
 function closePopup() {
   popup.classList.remove('popup_opened');
-
 }
 
 function formSubmitHandler(evt) {
