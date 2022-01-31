@@ -34,8 +34,8 @@ popupCloseButton.addEventListener('click', closePopup);
 popupForm.addEventListener('submit', formSubmitHandler);
 
 // Закрытие модального окна по клику вне его области
-/*popup.addEventListener('click', function (e) {
-  if (e.target === e.currentTarget) {
+/*popup.addEventListener('click', function (evt) {
+  if (evt.target === evt.currentTarget) {
     closePopup();
   }
 });*/
