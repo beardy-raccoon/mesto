@@ -101,7 +101,7 @@ function handleAddCard() {
 }
 
 function openPopup() {
-  nameInput.value = proficonstitle.textContent;
+  nameInput.value = profiletitle.textContent;
   aboutInput.value = profileSubtitle.textContent;
   popup.classList.add('popup_opened');
 }
