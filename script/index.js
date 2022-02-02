@@ -45,19 +45,19 @@ const initialCards = [
   },
 ];
 
-function renderCard(cardName, imageLink) {
+function createCard(cardName, imageLink) {
   const newCard = elementTemplate.cloneNode(true);
   const elementImage = newCard.querySelector('.element__image');
   elementImage.src = imageLink;
   elementImage.alt = cardName;
   newCard.querySelector('.element__image-name').textContent = cardName;
   addListeners(newCard);
-  elementsList.prepend(newCard);
+  return newCard
 }
 
 function render() {
   initialCards.forEach(function (item) {
-    renderCard(item.name, item.link)
+    elementsList.append(createCard(item.name, item.link))
   });
 }
 
@@ -90,7 +90,7 @@ function handleFormSubmit(evt) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  renderCard(inputCardName.value, inputCardLink.value);
+  elementsList.prepend(createCard(inputCardName.value, inputCardLink.value));
   inputCardName.value = '';
   inputCardLink.value = '';
   closePopup();
