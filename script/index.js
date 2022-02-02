@@ -62,16 +62,16 @@ function render() {
 }
 
 function addListeners(el) {
-  el.querySelector('.element__delete-button').addEventListener('click', handleDeconste);
-  el.querySelector('.element__like-button').addEventListener('click', handleLike);
+  el.querySelector('.element__delete-button').addEventListener('click', handleDeleteCard);
+  el.querySelector('.element__like-button').addEventListener('click', handleLikeCard);
   el.querySelector('.element__image').addEventListener('click', handleOpenImgPopup);
 }
 
-function handleDeconste(evt) {
+function handleDeleteCard(evt) {
   evt.target.closest('.element').remove();
 }
 
-function handleLike(evt) {
+function handleLikeCard(evt) {
   evt.currentTarget.classList.toggle('element__like-button_active');
 }
 
@@ -81,14 +81,14 @@ function handleOpenImgPopup(evt) {
   popupImageName.textContent = evt.target.alt;
 }
 
-function handleFormSubmit(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profiletitle.textContent = nameInput.value;
   profileSubtitle.textContent = aboutInput.value;
   closePopup();
 }
 
-function handleAddCardSubmit(evt) {
+function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
   elementsList.prepend(createCard(inputCardName.value, inputCardLink.value));
   inputCardName.value = '';
@@ -116,11 +116,11 @@ render();
 
 profileEditButton.addEventListener('click', openPopup);
 popupCloseButton.addEventListener('click', closePopup);
-popupForm.addEventListener('submit', handleFormSubmit);
+popupForm.addEventListener('submit', handleProfileFormSubmit);
 popupImageCloseButton.addEventListener('click', closePopup);
 popupNewCardCloseButton.addEventListener('click', closePopup);
 addCardButton.addEventListener('click', handleAddCard);
-createCardSubmit.addEventListener('submit', handleAddCardSubmit);
+createCardSubmit.addEventListener('submit', handleAddCardFormSubmit);
 
 // Закрытие модального окна по клику вне его области
 popup.addEventListener('click', function (evt) {
