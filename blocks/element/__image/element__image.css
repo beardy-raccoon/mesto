@@ -5,3 +5,8 @@
   object-fit: cover;
   cursor: pointer;
 }
+
+.element__image:hover {
+  transform: scale(1.05);
+  border-radius: 10px;
+}
