@@ -108,6 +108,7 @@ function openPopupAddCard() {
 function openPopupImage(evt) {
   openPopup(popupImage);
   popupImageLink.src = evt.target.src;
+  popupImageLink.alt = evt.target.alt;
   popupImageName.textContent = evt.target.alt;
 }
 
