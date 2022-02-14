@@ -18,16 +18,16 @@
 
       <section class="profile">
         <div class="profile__container">
-          <img src="./images/avatar.jpeg" class="profile__avatar" alt="Фото профиля">
+          <img src="./images/avatar2.jpeg" class="profile__avatar" alt="Фото профиля">
           <div class="profile__info">
             <div class="profile__name-wraper">
-              <h1 class="profile__title">Жак-Ив Кусто</h1>
-              <p class="profile__subtitle">Исследователь океана</p>
+              <h1 class="profile__title">Владислав Мещеринов</h1>
+              <p class="profile__subtitle">Исследователь JS океана</p>
             </div>
-            <button type="button" aria-label="Редактировать" class="profile__edit-button"></button>
+            <button type="button" aria-label="Редактировать" class="button profile__edit-button"></button>
           </div>
         </div>
-        <button type="button" aria-label="Добавить" class="profile__add-button"></button>
+        <button type="button" aria-label="Добавить" class="button profile__add-button"></button>
       </section>
 
       <section class="elements">
@@ -39,18 +39,18 @@
       <p class="footer__copyright" lang="en">&copy; 2022 Mesto Russia</p>
     </footer>
     <section class="popup popup_type_edit-profile">
-      <div class="popup__container">
+      <div class="popup__container popup__container_type_profile">
         <form action="#" method="get" name="profile-edit" class="popup__form">
           <h3 class="popup__title">Редактировать профиль</h3>
           <input type="text" name="name" class="popup__input popup__input_type_name" required placeholder="Имя">
           <input type="text" name="about" class="popup__input popup__input_type_about" required placeholder="О себе">
-          <button type="submit" aria-label="Сохранить" class="popup__submit-button">Сохранить</button>
-          <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
+          <button type="submit" aria-label="Сохранить" class="popup__submit-button button">Сохранить</button>
+          <button type="button" aria-label="Закрыть" class="popup__close-button button"></button>
         </form>
       </div>
     </section>
     <section class="popup popup_type_add-card">
-      <div class="popup__container">
+      <div class="popup__container popup__container_type_add-card">
         <form action="#" method="get" name="add-new-card" class="popup__form">
           <h3 class="popup__title">Новое место</h3>
           <input type="text" name="card-name" class="popup__input popup__input_card_name" required
@@ -63,7 +63,7 @@
       </div>
     </section>
     <section class="popup popup_type_image">
-      <div class="popup__container">
+      <div class="popup__container popup__container_type_image">
         <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
         <img class="popup__image-link" src="#" alt="">
         <h3 class="popup__image-name"></h3>

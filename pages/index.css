@@ -3,6 +3,7 @@
 @import url(../blocks/root/root.css);
 @import url(../blocks/page/page.css);
 @import url(../blocks/header/header.css);
+@import url(../blocks/button/button.css);
 @import url(../blocks/header/__logo/header__logo.css);
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__container/profile__container.css);
@@ -26,6 +27,7 @@
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__container/_opened/popup__container_opened.css);
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__input/popup__input.css);
@@ -34,7 +36,3 @@
 @import url(../blocks/popup/__image-link/popup__image-link.css);
 @import url(../blocks/popup/__image-name/popup__image-name.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
-a:hover .element__image {
-  transform: scale(1.05);
-  border-radius: 10px;
-}

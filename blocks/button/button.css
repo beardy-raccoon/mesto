@@ -1,0 +1,10 @@
+.button {
+  outline: none;
+  transition: scale .8s;
+}
+
+.button:focus {
+  transform: scale(1.05);
+  transition: scale .3s;
+  rotate: 45deg;
+}
