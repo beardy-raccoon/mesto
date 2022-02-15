@@ -77,23 +77,23 @@ function handleLikeCard(evt) {
   evt.currentTarget.classList.toggle('element__like-button_active');
 }
 
+
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', escButton);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', escButton);
 }
 
-/*function closePopups() {
-popups.forEach((popup) => {
-  closePopup(popup);
-});
+function escButton(evt) {
+  if (evt.key === 'Escape') {
+    let currentPopup = document.querySelector('.popup_opened');
+    currentPopup.classList.remove('popup_opened');
+  }
 }
-
-closeButtons.forEach((button) => {
-  button.addEventListener('click', closePopups)
-});*/
 
 function openPopupProfile() {
   nameInput.value = profiletitle.textContent;
@@ -146,6 +146,7 @@ popups.forEach((popup) => {
       closePopup(popup)
     }
   })
+
 });
 /*
 popupImage.addEventListener('click', function (evt) {
