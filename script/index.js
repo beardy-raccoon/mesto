@@ -95,10 +95,12 @@ function openPopupProfile() {
   nameInput.value = profiletitle.textContent;
   aboutInput.value = profileSubtitle.textContent;
   openPopup(popupProfile);
+  enableValidation();
 }
 
 function openPopupAddCard() {
   openPopup(popupAddCard);
+  enableValidation();
 }
 
 function openPopupImage(evt) {
@@ -113,7 +115,6 @@ function handleProfileFormSubmit(evt) {
   profiletitle.textContent = nameInput.value;
   profileSubtitle.textContent = aboutInput.value;
   closePopup(popupProfile);
-  submitButtonToggle;
 }
 
 function handleAddCardFormSubmit(evt) {
@@ -140,6 +141,6 @@ popups.forEach((popup) => {
       closePopup(popup)
     }
   })
-
 });
+
 

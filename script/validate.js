@@ -4,7 +4,6 @@ const formSubmit = (evt) => {
 
 const checkInputValidity = (popupForm, popupInput) => {
   const errorMessage = popupForm.querySelector(`#error-${popupInput.id}`);
-  console.log(errorMessage);
   if (popupInput.validity.valid) {
     popupInput.classList.remove('popup__input_type_error');
     errorMessage.textContent = '';
@@ -27,10 +26,11 @@ const submitButtonToggle = (popupForm, popupSubmitButton) => {
 }
 
 function enableValidation() {
-  const popupForm = document.querySelector('.popup__form');
+  const currentForm = document.querySelector('.popup_opened');
+  const popupForm = currentForm.querySelector('.popup__form')
   popupForm.addEventListener('submit', formSubmit)
-  const popupInputs = document.querySelectorAll('.popup__input');
-  const popupSubmitButton = document.querySelector('.popup__submit-button');
+  const popupInputs = currentForm.querySelectorAll('.popup__input');
+  const popupSubmitButton = currentForm.querySelector('.popup__submit-button');
   submitButtonToggle(popupForm, popupSubmitButton);
   popupInputs.forEach(popupInput => {
     popupInput.addEventListener('input', (evt) => {
@@ -40,4 +40,3 @@ function enableValidation() {
   });
 }
 
-enableValidation();
