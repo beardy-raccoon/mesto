@@ -12,6 +12,7 @@ const nameInput = popupProfile.querySelector('.popup__input_type_name');
 const aboutInput = popupProfile.querySelector('.popup__input_type_about');
 const buttonAddCard = document.querySelector('.profile__add-button');
 const popupAddCard = document.querySelector('.popup_type_add-card');
+const popupAddCardSubmitBtn = popupAddCard.querySelector('.popup__submit-button');
 const inputCardName = popupAddCard.querySelector('.popup__input_card_name');
 const inputCardLink = popupAddCard.querySelector('.popup__input_card_link');
 const popupAddCardForm = popupAddCard.querySelector('.popup__form');
@@ -70,11 +71,12 @@ function openPopupProfile() {
   nameInput.value = profileTitle.textContent;
   aboutInput.value = profileSubtitle.textContent;
   openPopup(popupProfile);
-  isButtonValid(popupProfileForm, popupProfileSubmitBtn);
+  toggleButtonState(popupProfileForm, popupProfileSubmitBtn);
 }
 
 function openPopupAddCard() {
   openPopup(popupAddCard);
+  toggleButtonState(popupAddCardForm, popupAddCardSubmitBtn);
 }
 
 function openPopupImage(evt) {

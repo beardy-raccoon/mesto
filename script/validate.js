@@ -36,7 +36,7 @@ const disableButton = (popupSubmitButton) => {
   popupSubmitButton.classList.add(valSet.inactiveButtonClass);
 }
 
-const isButtonValid = (popupForm, popupSubmitButton) => {
+const toggleButtonState = (popupForm, popupSubmitButton) => {
   if (popupForm.checkValidity()) {
     enableButton(popupSubmitButton);
   } else {
