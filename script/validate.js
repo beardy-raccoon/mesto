@@ -11,78 +11,78 @@ const handleFormSubmit = (evt) => {
   evt.preventDefault();
 }
 
-const setEvtListeners = (popupForm) => {
+const setEvtListeners = (popupForm, config) => {
 
-  const popupInputs = popupForm.querySelectorAll(valSet.inputSelector);
-  const popupSubmitButton = popupForm.querySelector(valSet.submitButtonSelector);
+  const popupInputs = popupForm.querySelectorAll(config.inputSelector);
+  const popupSubmitButton = popupForm.querySelector(config.submitButtonSelector);
 
-  handleSubmitButton(popupInputs, popupSubmitButton);
+  handleSubmitButton(popupInputs, popupSubmitButton, config);
 
   Array.from(popupInputs).forEach((popupInput) => {
     popupInput.addEventListener('input', () => {
-      validateInput(popupForm, popupInput);
-      handleSubmitButton(popupInputs, popupSubmitButton);
+      validateInput(popupForm, popupInput, config);
+      handleSubmitButton(popupInputs, popupSubmitButton, config);
     });
   });
 }
 
-const enableButton = (popupSubmitButton) => {
+const enableButton = (popupSubmitButton, config) => {
   popupSubmitButton.removeAttribute('disabled');
-  popupSubmitButton.classList.remove(valSet.inactiveButtonClass);
+  popupSubmitButton.classList.remove(config.inactiveButtonClass);
 }
 
-const disableButton = (popupSubmitButton) => {
+const disableButton = (popupSubmitButton, config) => {
   popupSubmitButton.setAttribute('disabled', '');
-  popupSubmitButton.classList.add(valSet.inactiveButtonClass);
+  popupSubmitButton.classList.add(config.inactiveButtonClass);
 }
 
-const toggleButtonState = (popupForm, popupSubmitButton) => {
+const toggleButtonState = (popupForm, popupSubmitButton, config) => {
   if (popupForm.checkValidity()) {
-    enableButton(popupSubmitButton);
+    enableButton(popupSubmitButton, config);
   } else {
-    disableButton(popupSubmitButton);
+    disableButton(popupSubmitButton, config);
   }
 }
 
-function enableInputErr(popupInput, popupForm, validationMessage) {
+function enableInputErr(popupInput, popupForm, validationMessage, config) {
   const errorMessage = popupForm.querySelector(`#error-${popupInput.id}`);
   errorMessage.textContent = validationMessage;
-  popupInput.classList.add(valSet.inputErrorClass);
-  errorMessage.classList.add(valSet.errorClass);
+  popupInput.classList.add(config.inputErrorClass);
+  errorMessage.classList.add(config.errorClass);
 }
 
-function disableInputErr(popupInput, popupForm) {
+function disableInputErr(popupInput, popupForm, config) {
   const errorMessage = popupForm.querySelector(`#error-${popupInput.id}`);
   errorMessage.textContent = "";
-  popupInput.classList.remove(valSet.inputErrorClass);
-  errorMessage.classList.remove(valSet.errorClass);
+  popupInput.classList.remove(config.inputErrorClass);
+  errorMessage.classList.remove(config.errorClass);
 }
 
-function validateInput(popupForm, popupInput) {
+function validateInput(popupForm, popupInput, config) {
   if (popupInput.validity.valid) {
-    disableInputErr(popupInput, popupForm);
+    disableInputErr(popupInput, popupForm, config);
   } else {
-    enableInputErr(popupInput, popupForm, popupInput.validationMessage);
+    enableInputErr(popupInput, popupForm, popupInput.validationMessage, config);
   }
 }
 
-function handleSubmitButton(popupInputs, popupSubmitButton) {
+function handleSubmitButton(popupInputs, popupSubmitButton, config) {
   if (Array.from(popupInputs).filter(popupInput => !popupInput.validity.valid).length === 0) {
-    enableButton(popupSubmitButton);
+    enableButton(popupSubmitButton, config);
   } else {
-    disableButton(popupSubmitButton);
+    disableButton(popupSubmitButton, config);
   }
 }
 
-function enableValidation() {
-  const popupForms = document.querySelectorAll(valSet.formSelector);
+function enableValidation(config) {
+  const popupForms = document.querySelectorAll(config.formSelector);
 
   Array.from(popupForms).forEach((popupForm) => {
 
     popupForm.addEventListener('submit', handleFormSubmit);
 
-    setEvtListeners(popupForm);
+    setEvtListeners(popupForm, config);
   });
 }
 
-enableValidation();
+enableValidation(valSet);

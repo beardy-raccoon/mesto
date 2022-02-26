@@ -67,16 +67,16 @@ function handleCloseByEsc(evt) {
   }
 }
 
-function openPopupProfile() {
+function openPopupProfile(config) {
   nameInput.value = profileTitle.textContent;
   aboutInput.value = profileSubtitle.textContent;
   openPopup(popupProfile);
-  toggleButtonState(popupProfileForm, popupProfileSubmitBtn);
+  toggleButtonState(popupProfileForm, popupProfileSubmitBtn, config);
 }
 
-function openPopupAddCard() {
+function openPopupAddCard(config) {
   openPopup(popupAddCard);
-  toggleButtonState(popupAddCardForm, popupAddCardSubmitBtn);
+  toggleButtonState(popupAddCardForm, popupAddCardSubmitBtn, config);
 }
 
 function openPopupImage(evt) {
