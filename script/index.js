@@ -67,16 +67,16 @@ function handleCloseByEsc(evt) {
   }
 }
 
-function openPopupProfile(config) {
+function openPopupProfile() {
   nameInput.value = profileTitle.textContent;
   aboutInput.value = profileSubtitle.textContent;
   openPopup(popupProfile);
-  toggleButtonState(popupProfileForm, popupProfileSubmitBtn, config);
+  toggleButtonState(popupProfileForm, popupProfileSubmitBtn, {inactiveButtonClass: 'popup__submit-button_inactive'});
 }
 
-function openPopupAddCard(config) {
+function openPopupAddCard() {
   openPopup(popupAddCard);
-  toggleButtonState(popupAddCardForm, popupAddCardSubmitBtn, config);
+  toggleButtonState(popupAddCardForm, popupAddCardSubmitBtn, {inactiveButtonClass: 'popup__submit-button_inactive'});
 }
 
 function openPopupImage(evt) {
