@@ -18,6 +18,14 @@ const inputCardLink = popupAddCard.querySelector('.popup__input_card_link');
 const popupAddCardForm = popupAddCard.querySelector('.popup__form');
 const elementTemplate = document.querySelector('#element-template').content;
 const elementsList = document.querySelector('.elements-list');
+const valSet = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit-button',
+  inactiveButtonClass: 'popup__submit-button_inactive',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+}
 
 function createCard(cardName, imageLink) {
   const newCard = elementTemplate.querySelector('.element').cloneNode(true);
@@ -71,12 +79,12 @@ function openPopupProfile() {
   nameInput.value = profileTitle.textContent;
   aboutInput.value = profileSubtitle.textContent;
   openPopup(popupProfile);
-  toggleButtonState(popupProfileForm, popupProfileSubmitBtn, {inactiveButtonClass: 'popup__submit-button_inactive'});
+  toggleButtonState(popupProfileForm, popupProfileSubmitBtn, valSet);
 }
 
 function openPopupAddCard() {
   openPopup(popupAddCard);
-  toggleButtonState(popupAddCardForm, popupAddCardSubmitBtn, {inactiveButtonClass: 'popup__submit-button_inactive'});
+  toggleButtonState(popupAddCardForm, popupAddCardSubmitBtn, valSet);
 }
 
 function openPopupImage(evt) {
@@ -101,6 +109,8 @@ function handleAddCardFormSubmit(evt) {
 }
 
 render();
+
+enableValidation(valSet);
 
 profileEditButton.addEventListener('click', openPopupProfile);
 popupProfileForm.addEventListener('submit', handleProfileFormSubmit);

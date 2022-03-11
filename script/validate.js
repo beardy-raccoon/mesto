@@ -1,12 +1,3 @@
-const valSet = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit-button',
-  inactiveButtonClass: 'popup__submit-button_inactive',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-}
-
 const handleFormSubmit = (evt) => {
   evt.preventDefault();
 }
@@ -84,5 +75,3 @@ function enableValidation(config) {
     setEvtListeners(popupForm, config);
   });
 }
-
-enableValidation(valSet);
