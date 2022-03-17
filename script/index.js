@@ -1,31 +1,19 @@
-const profileTitle = document.querySelector('.profile__title');
-const profileSubtitle = document.querySelector('.profile__subtitle');
-const profileEditButton = document.querySelector('.profile__edit-button');
-const popups = document.querySelectorAll('.popup');
-const popupProfile = document.querySelector('.popup_type_edit-profile');
-const popupImage = document.querySelector('.popup_type_image');
-const popupImageLink = popupImage.querySelector('.popup__image-link');
-const popupImageName = popupImage.querySelector('.popup__image-name');
-const popupProfileForm = popupProfile.querySelector('.popup__form');
-const popupProfileSubmitBtn = popupProfile.querySelector('.popup__submit-button')
-const nameInput = popupProfile.querySelector('.popup__input_type_name');
-const aboutInput = popupProfile.querySelector('.popup__input_type_about');
-const buttonAddCard = document.querySelector('.profile__add-button');
-const popupAddCard = document.querySelector('.popup_type_add-card');
-const popupAddCardSubmitBtn = popupAddCard.querySelector('.popup__submit-button');
-const inputCardName = popupAddCard.querySelector('.popup__input_card_name');
-const inputCardLink = popupAddCard.querySelector('.popup__input_card_link');
-const popupAddCardForm = popupAddCard.querySelector('.popup__form');
-const elementTemplate = document.querySelector('#element-template').content;
-const elementsList = document.querySelector('.elements-list');
-const valSet = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit-button',
-  inactiveButtonClass: 'popup__submit-button_inactive',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-}
+import {
+  profileTitle, profileSubtitle, profileEditButton, popups, popupProfile,
+  popupImage, popupImageLink, popupImageName, popupProfileForm, popupProfileSubmitBtn,
+  nameInput, aboutInput, buttonAddCard, popupAddCard, popupAddCardSubmitBtn, inputCardName,
+  inputCardLink, popupAddCardForm, elementTemplate, elementsList, valSet
+} from './consts.js'
+
+import { FormValidator } from './formValidator.js';
+
+import { initialCards } from './initialCards.js'
+
+const popupAddCardFormValidator = new FormValidator(valSet, popupAddCardForm);
+const popupProfileFormValidator = new FormValidator(valSet, popupProfileForm);
+
+popupAddCardFormValidator.enableValidation();
+popupProfileFormValidator.enableValidation();
 
 function createCard(cardName, imageLink) {
   const newCard = elementTemplate.querySelector('.element').cloneNode(true);
@@ -79,12 +67,12 @@ function openPopupProfile() {
   nameInput.value = profileTitle.textContent;
   aboutInput.value = profileSubtitle.textContent;
   openPopup(popupProfile);
-  toggleButtonState(popupProfileForm, popupProfileSubmitBtn, valSet);
+  //toggleButtonState(popupProfileForm, popupProfileSubmitBtn, valSet);
 }
 
 function openPopupAddCard() {
   openPopup(popupAddCard);
-  toggleButtonState(popupAddCardForm, popupAddCardSubmitBtn, valSet);
+  //toggleButtonState(popupAddCardForm, popupAddCardSubmitBtn, valSet);
 }
 
 function openPopupImage(evt) {
@@ -110,7 +98,7 @@ function handleAddCardFormSubmit(evt) {
 
 render();
 
-enableValidation(valSet);
+
 
 profileEditButton.addEventListener('click', openPopupProfile);
 popupProfileForm.addEventListener('submit', handleProfileFormSubmit);
