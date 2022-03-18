@@ -5,7 +5,7 @@ import {
   inputCardLink, popupAddCardForm, elementTemplate, elementsList, valSet
 } from './consts.js'
 
-import { FormValidator } from './formValidator.js';
+import { FormValidator } from './FormValidator.js';
 
 import { initialCards } from './initialCards.js'
 
@@ -67,12 +67,12 @@ function openPopupProfile() {
   nameInput.value = profileTitle.textContent;
   aboutInput.value = profileSubtitle.textContent;
   openPopup(popupProfile);
-  //toggleButtonState(popupProfileForm, popupProfileSubmitBtn, valSet);
+  popupProfileFormValidator.resetErrs();
 }
 
 function openPopupAddCard() {
   openPopup(popupAddCard);
-  //toggleButtonState(popupAddCardForm, popupAddCardSubmitBtn, valSet);
+  popupAddCardFormValidator.resetErrs();
 }
 
 function openPopupImage(evt) {

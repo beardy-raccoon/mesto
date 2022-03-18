@@ -1,4 +1,4 @@
-const handleFormSubmit = (evt) => {
+/*const handleFormSubmit = (evt) => {
   evt.preventDefault();
 }
 
@@ -27,7 +27,7 @@ const disableButton = (popupSubmitButton, config) => {
   popupSubmitButton.classList.add(config.inactiveButtonClass);
 }
 
-const toggleButtonState = (popupForm, popupSubmitButton, config) => {
+/*const toggleButtonState = (popupForm, popupSubmitButton, config) => {
   if (popupForm.checkValidity()) {
     enableButton(popupSubmitButton, config);
   } else {
@@ -74,4 +74,4 @@ function enableValidation(config) {
 
     setEvtListeners(popupForm, config);
   });
-}
+}*/

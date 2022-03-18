@@ -42,6 +42,14 @@ export class FormValidator {
     this._popupSubmitButton.classList.add(this._config.inactiveButtonClass);
   }
 
+  _toggleButtonState() {
+    if (this._popupForm.checkValidity()) {
+      this._enableButton();
+    } else {
+      this._disableButton();
+    }
+  }
+
   _handleSubmitButton() {
     if (Array.from(this._popupInputs).filter(popupInput => !popupInput.validity.valid).length === 0) {
       this._enableButton();
@@ -50,9 +58,15 @@ export class FormValidator {
     }
   }
 
+  resetErrs() {
+    Array.from(this._popupInputs).forEach((popupInput) => {
+      this._disableInputErr(popupInput);
+    });
+    this._toggleButtonState();
+  }
   _setEvtListeners() {
 
-  this._handleSubmitButton();
+    this._handleSubmitButton();
 
     Array.from(this._popupInputs).forEach((popupInput) => {
       popupInput.addEventListener('input', () => {
@@ -67,4 +81,4 @@ export class FormValidator {
     this._setEvtListeners();
   };
 
-  }
+}
