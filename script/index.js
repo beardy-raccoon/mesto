@@ -18,16 +18,6 @@ const popupProfileFormValidator = new FormValidator(valSet, popupProfileForm);
 popupAddCardFormValidator.enableValidation();
 popupProfileFormValidator.enableValidation();
 
-/*function createCard(cardName, imageLink) {
-  const newCard = elementTemplate.querySelector('.element').cloneNode(true);
-  const elementImage = newCard.querySelector('.element__image');
-  elementImage.src = imageLink;
-  elementImage.alt = cardName;
-  newCard.querySelector('.element__image-name').textContent = cardName;
-  addListeners(newCard);
-  return newCard
-}*/
-
 const createCardElement = (data) => {
   const card = new Card(data, '#element-template');
   const cardElement = card.createCard();
@@ -43,56 +33,18 @@ initialCards.forEach((item) => {
   renderCard(cardElement)
 });
 
-/*function addListeners(el) {
-  el.querySelector('.element__delete-button').addEventListener('click', handleDeleteCard);
-  el.querySelector('.element__like-button').addEventListener('click', handleLikeCard);
-  el.querySelector('.element__image').addEventListener('click', openPopupImage);
-}
-
-function handleDeleteCard(evt) {
-  evt.target.closest('.element').remove();
-}
-
-function handleLikeCard(evt) {
-  evt.currentTarget.classList.toggle('element__like-button_active');
-}
-
-
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', handleCloseByEsc);
-}
-
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', handleCloseByEsc);
-}
-
-function handleCloseByEsc(evt) {
-  if (evt.key === 'Escape') {
-    const currentPopup = document.querySelector('.popup_opened');
-    closePopup(currentPopup);
-  }
-}*/
-
 function openPopupProfile() {
   nameInput.value = profileTitle.textContent;
   aboutInput.value = profileSubtitle.textContent;
   openPopup(popupProfile);
-  popupProfileFormValidator.resetErrs();
+  popupProfileFormValidator.resetValidation();
 }
 
 function openPopupAddCard() {
   openPopup(popupAddCard);
-  popupAddCardFormValidator.resetErrs();
+  popupAddCardForm.reset();
+  popupAddCardFormValidator.resetValidation();
 }
-
-/*function openPopupImage(evt) {
-  openPopup(popupImage);
-  popupImageLink.src = evt.target.src;
-  popupImageLink.alt = evt.target.alt;
-  popupImageName.textContent = evt.target.alt;
-}*/
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();

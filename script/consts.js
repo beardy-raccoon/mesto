@@ -7,16 +7,13 @@ export const popupImage = document.querySelector('.popup_type_image');
 export const popupImageLink = popupImage.querySelector('.popup__image-link');
 export const popupImageName = popupImage.querySelector('.popup__image-name');
 export const popupProfileForm = popupProfile.querySelector('.popup__form');
-//const popupProfileSubmitBtn = popupProfile.querySelector('.popup__submit-button')
 export const nameInput = popupProfile.querySelector('.popup__input_type_name');
 export const aboutInput = popupProfile.querySelector('.popup__input_type_about');
 export const buttonAddCard = document.querySelector('.profile__add-button');
 export const popupAddCard = document.querySelector('.popup_type_add-card');
-//const popupAddCardSubmitBtn = popupAddCard.querySelector('.popup__submit-button');
 export const inputCardName = popupAddCard.querySelector('.popup__input_card_name');
 export const inputCardLink = popupAddCard.querySelector('.popup__input_card_link');
 export const popupAddCardForm = popupAddCard.querySelector('.popup__form');
-//const elementTemplate = document.querySelector('#element-template').content;
 export const elementsList = document.querySelector('.elements-list');
 
 export const valSet = {

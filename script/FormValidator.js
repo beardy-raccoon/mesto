@@ -50,15 +50,7 @@ export class FormValidator {
     }
   }
 
-  _handleSubmitButton() {
-    if (Array.from(this._popupInputs).filter(popupInput => !popupInput.validity.valid).length === 0) {
-      this._enableButton();
-    } else {
-      this._disableButton();
-    }
-  }
-
-  resetErrs() {
+  resetValidation() {
     Array.from(this._popupInputs).forEach((popupInput) => {
       this._disableInputErr(popupInput);
     });
@@ -66,12 +58,12 @@ export class FormValidator {
   }
   _setEvtListeners() {
 
-    this._handleSubmitButton();
+    this._toggleButtonState();
 
     Array.from(this._popupInputs).forEach((popupInput) => {
       popupInput.addEventListener('input', () => {
         this._validateInput(popupInput);
-        this._handleSubmitButton();
+        this._toggleButtonState();
       });
     });
   }
