@@ -7,16 +7,16 @@ export const popupImage = document.querySelector('.popup_type_image');
 export const popupImageLink = popupImage.querySelector('.popup__image-link');
 export const popupImageName = popupImage.querySelector('.popup__image-name');
 export const popupProfileForm = popupProfile.querySelector('.popup__form');
-export const popupProfileSubmitBtn = popupProfile.querySelector('.popup__submit-button')
+//const popupProfileSubmitBtn = popupProfile.querySelector('.popup__submit-button')
 export const nameInput = popupProfile.querySelector('.popup__input_type_name');
 export const aboutInput = popupProfile.querySelector('.popup__input_type_about');
 export const buttonAddCard = document.querySelector('.profile__add-button');
 export const popupAddCard = document.querySelector('.popup_type_add-card');
-export const popupAddCardSubmitBtn = popupAddCard.querySelector('.popup__submit-button');
+//const popupAddCardSubmitBtn = popupAddCard.querySelector('.popup__submit-button');
 export const inputCardName = popupAddCard.querySelector('.popup__input_card_name');
 export const inputCardLink = popupAddCard.querySelector('.popup__input_card_link');
 export const popupAddCardForm = popupAddCard.querySelector('.popup__form');
-export const elementTemplate = document.querySelector('#element-template').content;
+//const elementTemplate = document.querySelector('#element-template').content;
 export const elementsList = document.querySelector('.elements-list');
 
 export const valSet = {
@@ -28,3 +28,19 @@ export const valSet = {
   errorClass: 'popup__error_visible'
 }
 
+export const handleCloseByEsc = (evt) => {
+  if (evt.key === 'Escape') {
+    const currentPopup = document.querySelector('.popup_opened');
+    closePopup(currentPopup);
+  }
+}
+
+export const openPopup = (popup) => {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', handleCloseByEsc);
+}
+
+export const closePopup = (popup) => {
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', handleCloseByEsc);
+}
