@@ -1,4 +1,5 @@
-import { popupImage, popupImageLink, popupImageName, openPopup } from './consts.js';
+import { popupImage, popupImageLink, popupImageName } from './consts.js';
+import { openPopup } from './utils.js';
 
 export class Card {
   constructor(data, elementTemplateSelector,) {

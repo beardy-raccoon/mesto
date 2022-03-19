@@ -1,8 +1,10 @@
 import {
   profileTitle, profileSubtitle, profileEditButton, popups, popupProfile,
   popupProfileForm, nameInput, aboutInput, buttonAddCard, popupAddCard, inputCardName,
-  inputCardLink, popupAddCardForm, elementsList, valSet, openPopup, closePopup
+  inputCardLink, popupAddCardForm, elementsList, valSet
 } from './consts.js';
+
+import { openPopup, closePopup } from './utils.js';
 
 import { Card } from './Card.js';
 
