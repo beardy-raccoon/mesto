@@ -1,4 +1,4 @@
-export const openPopup = (popup) => {
+/*export const openPopup = (popup) => {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', handleCloseByEsc);
 }
@@ -13,4 +13,4 @@ const handleCloseByEsc = (evt) => {
     const currentPopup = document.querySelector('.popup_opened');
     closePopup(currentPopup);
   }
-}
+}*/
