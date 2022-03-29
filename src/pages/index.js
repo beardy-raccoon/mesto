@@ -48,7 +48,7 @@ const  handleProfileFormSubmit = (data) => {
 
 const renderCard = (item, container) => {
   const card = createCardElement(item);
-  container.append(card);
+  section.addItem(card);
 }
 
 const section = new Section({
@@ -75,13 +75,13 @@ profileEditButton.addEventListener('click', () => {
   const { userName, userAbout } = userInfo.getUserInfo();
   nameInput.value = userName;
   aboutInput.value = userAbout;
-  editProfilePopup.open()
   popupProfileFormValidator.resetValidation();
+  editProfilePopup.open();
 });
 
 buttonAddCard.addEventListener('click', () => {
-  addCardPopup.open();
   popupAddCardFormValidator.resetValidation();
+  addCardPopup.open();
 });
 
 
