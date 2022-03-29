@@ -1,3 +1,5 @@
+import './index.css';
+
 import {
   profileEditButton,popupProfileForm,
   nameInput, aboutInput, buttonAddCard,

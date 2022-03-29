@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Проект Место</title>
-  <link rel="stylesheet" href="./pages/index.css" />
 </head>
 
 <body class="root">
@@ -18,7 +17,7 @@
 
       <section class="profile">
         <div class="profile__container">
-          <img src="./images/avatar.jpeg" class="profile__avatar" alt="Фото профиля">
+          <img src="<%=require('./images/avatar.jpeg')%>" class="profile__avatar" alt="Фото профиля">
           <div class="profile__info">
             <div class="profile__name-wraper">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -86,7 +85,6 @@
       </li>
     </template>
   </div>
-  <script type="module" src="./pages/index.js"></script>
 </body>
 
 </html>
