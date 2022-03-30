@@ -46,7 +46,7 @@ const  handleProfileFormSubmit = (data) => {
   editProfilePopup.close();
 }
 
-const renderCard = (item, container) => {
+const renderCard = (item) => {
   const card = createCardElement(item);
   section.addItem(card);
 }
