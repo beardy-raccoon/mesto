@@ -30,6 +30,7 @@
 .popup__container{position:relative}
 .popup__form{background:#fff;border-radius:10px;box-shadow:0 0 25px rgba(0,0,0,.15);box-sizing:border-box;color:#000;display:flex;flex-direction:column;max-width:430px;padding:36px;position:relative;width:100%}@media screen and (max-width:592px){.popup__form{max-width:282px;padding:25px 22px}}
 .popup__title{font-size:24px;font-weight:900;line-height:29px;margin:0}@media screen and (max-width:592px){.popup__title{font-size:18px;line-height:22px}}
+.popup__title_type_sure{margin-bottom:38px}
 .popup__input{border:none;border-bottom:1px solid rgba(0,0,0,.2);font-size:14px;line-height:17px;outline:none;padding:0 0 13px}.popup__input:first-of-type{margin-top:54px}@media screen and (max-width:592px){.popup__input:first-of-type{margin-top:75px}}
 .popup__input_type_error{border-bottom:1px solid red}
 .popup__error{color:red;font-size:12px;font-style:normal;line-height:15px;margin-top:5px;min-height:35px;visibility:hidden}
