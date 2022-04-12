@@ -22,6 +22,7 @@
 .element__image-name{color:#000;font-size:24px;font-weight:900;line-height:100%;margin:25px 0 30px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .element__like-button{background-color:transparent;background-image:url(e22f190ce777a4008bf9.svg);background-repeat:no-repeat;background-size:contain;border:unset;cursor:pointer;min-height:19px;min-width:22px;transition:opacity .9s}.element__like-button:hover{opacity:.5;transition:opacity .3s}
 .element__like-button_active{background-image:url(b9e22b12c21f10fbc48a.svg)}
+.element__like-counter{color:#000;font-size:13px;font-weight:400;line-height:16px;text-align:center}
 .footer{color:#545454;margin:0 auto;max-width:880px;padding:67px 0 60px}@media screen and (max-width:899px){.footer{max-width:68.75%;text-align:center}}@media screen and (max-width:600px){.footer{padding:48px 19px 36px}}@media screen and (max-width:374px){.footer{max-width:unset;text-align:unset}}
 .footer__copyright{font-size:18px;line-height:22px;margin:0}@media screen and (max-width:591px){.footer__copyright{font-size:14px;line-height:17px;min-width:282px}}
 .popup{align-items:center;background:rgba(0,0,0,.5);display:flex;height:100%;justify-content:center;left:0;opacity:0;position:fixed;top:0;transition:visibility .6s ease-in,opacity .6s ease-in;visibility:hidden;width:100%}
