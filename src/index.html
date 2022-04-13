@@ -20,8 +20,8 @@
           <img src="<%=require('./images/avatar.jpeg')%>" class="profile__avatar" alt="Фото профиля">
           <div class="profile__info">
             <div class="profile__name-wraper">
-              <h1 class="profile__title">Жак-Ив Кусто</h1>
-              <p class="profile__subtitle">Исследователь океана</p>
+              <h1 class="profile__title"></h1>
+              <p class="profile__subtitle"></p>
             </div>
             <button type="button" aria-label="Редактировать" class="profile__edit-button"></button>
           </div>
@@ -74,13 +74,25 @@
         <h3 class="popup__image-name"></h3>
       </div>
     </section>
+    <section class="popup popup_type_sure">
+      <div class="popup__container">
+        <form action="#" method="get" name="submit-card-delete" class="popup__form" novalidate>
+          <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
+          <h3 class="popup__title popup__title_type_sure">Вы уверены?</h3>
+          <button type="submit" aria-label="Да" class="popup__submit-button">Да</button>
+        </form>
+      </div>
+    </section>
     <template id="element-template">
       <li class="element">
         <button type="button" aria-label="Удалить" class="element__delete-button"></button>
         <img class="element__image" src="#" alt="Название загруженного фото">
         <div class="element__wrap">
           <h2 class="element__image-name"></h2>
-          <button type="button" aria-label="Нравится" class="element__like-button"></button>
+          <div class="element__like-wrap">
+            <button type="button" aria-label="Нравится" class="element__like-button"></button>
+            <span class="element__like-counter"></span>
+          </div>
         </div>
       </li>
     </template>

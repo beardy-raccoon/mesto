@@ -1,4 +1,4 @@
-export const initialCards = [
+const initialCards = [
   {
     name: 'Oh not again',
     link: 'https://i0.wp.com/tutorial.eyehunts.com/wp-content/uploads/2021/07/257124479_4492885784093598_7332326531376746242_n.jpg?resize=750%2C769&ssl=1'
