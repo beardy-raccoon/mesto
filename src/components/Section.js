@@ -12,6 +12,10 @@ export class Section {
   }
 
   addItem(cardElement) {
+    this._container.append(cardElement);
+  }
+
+  addNewItem(cardElement) {
     this._container.prepend(cardElement);
   }
 }

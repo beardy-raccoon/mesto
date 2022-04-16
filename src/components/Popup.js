@@ -1,11 +1,16 @@
 export class Popup {
   constructor(popupSelector) {
     this._popup = document.querySelector(popupSelector);
+    this._submitBtn = this._popup.querySelector('.popup__submit-button');
   }
 
   open() {
     this._popup.classList.add('popup_opened');
     document.addEventListener('keydown', this._handleEscClose);
+  }
+
+  changeBtnText(text) {
+    this._submitBtn.textContent = text;
   }
 
   close() {

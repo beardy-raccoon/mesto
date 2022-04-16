@@ -1,7 +1,8 @@
 export class UserInfo {
-  constructor({ profileNameSelector, profileAboutSelector }) {
+  constructor({ profileNameSelector, profileAboutSelector, profileAvatarSelector }) {
     this._userNameElement = document.querySelector(profileNameSelector);
     this._userAboutElement = document.querySelector(profileAboutSelector);
+    this._userAvatarElememt = document.querySelector(profileAvatarSelector);
   }
 
   getUserInfo() {
@@ -12,7 +13,11 @@ export class UserInfo {
   }
 
   setUserInfo({ userName, userAbout }) {
-    this._userNameElement.textContent = userName
-    this._userAboutElement.textContent = userAbout
+    this._userNameElement.textContent = userName;
+    this._userAboutElement.textContent = userAbout;
+  }
+
+  setUserAvatar({userAvatar}) {
+    this._userAvatarElememt.style.backgroundImage  = `url(${userAvatar})`;
   }
 }

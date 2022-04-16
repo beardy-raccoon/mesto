@@ -42,6 +42,21 @@ class Api {
     .catch(console.log)
   }
 
+  editProfileAvatar({avatarlink}) {
+    return fetch('https://mesto.nomoreparties.co/v1/cohort-39/users/me/avatar', {
+      method: 'PATCH',
+      headers: {
+        authorization: 'be572c5e-d007-4eb5-8f11-d7febc239ede',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        avatar: avatarlink
+      })
+    })
+    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка api редактирования аватара, мой господин! Статус ошибки: ${res.status}`))
+    .catch(console.log)
+  }
+
   addCard(name, link) {
     return fetch('https://mesto.nomoreparties.co/v1/cohort-39/cards', {
       method: 'POST',
@@ -67,6 +82,30 @@ class Api {
       }
     })
     .then(res => res.ok ? res.json() : Promise.reject(`Ошибка api delete карточки, мой господин! Статус ошибки: ${res.status}`))
+    .catch(console.log)
+  }
+
+  setLike(id) {
+    return fetch(`https://mesto.nomoreparties.co/v1/cohort-39/cards/${id}/likes`, {
+      method: 'PUT',
+      headers: {
+        authorization: 'be572c5e-d007-4eb5-8f11-d7febc239ede',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка api setLike, мой господин! Статус ошибки: ${res.status}`))
+    .catch(console.log)
+  }
+
+  deleteLike(id) {
+    return fetch(`https://mesto.nomoreparties.co/v1/cohort-39/cards/${id}/likes`, {
+      method: 'DELETE',
+      headers: {
+        authorization: 'be572c5e-d007-4eb5-8f11-d7febc239ede',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка api deleteLike, мой господин! Статус ошибки: ${res.status}`))
     .catch(console.log)
   }
 }

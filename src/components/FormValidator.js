@@ -1,12 +1,13 @@
 export class FormValidator {
-  constructor(config, popupForm) {
-    this._popupForm = popupForm;
+  constructor(config,popupSelector) {
+    this._popup = document.querySelector(popupSelector);
+    this._popupForm = this._popup.querySelector('.popup__form');
     this._config = config;
     this._popupSubmitButton = this._popupForm.querySelector(this._config.submitButtonSelector);
     this._popupInputs = this._popupForm.querySelectorAll(this._config.inputSelector);
   }
 
-  _handleFormSubmit(evt) {
+  _handleFormSubmitPrevDef(evt) {
     evt.preventDefault();
   }
 
@@ -69,7 +70,7 @@ export class FormValidator {
   }
 
   enableValidation() {
-    this._popupForm.addEventListener('submit', this._handleFormSubmit);
+    this._popupForm.addEventListener('submit', this._handleFormSubmitPrevDef);
     this._setEvtListeners();
   };
 
