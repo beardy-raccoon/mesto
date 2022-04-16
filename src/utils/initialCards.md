@@ -24,3 +24,21 @@ const initialCards = [
     link: 'https://media-exp1.licdn.com/dms/image/C4D22AQEb5rMFr0U1xg/feedshare-shrink_800/0/1647501575144?e=1651104000&v=beta&t=EV3bGDevlSzxq7mScV8L3od-pN2cFDUkHa_X3yAO4oY'
   },
 ];
+
+avatar links
+
+https://pbs.twimg.com/media/Dizibm2W0AYLURp.jpg
+
+https://pbs.twimg.com/media/DgtryXMUcAIwrsM.jpg
+
+https://a.allegroimg.com/original/113a31/76a4836648e69d06a8834bf86376/Final-Space-Mooncake-Chookity-Pok-plakat-61x91-5cm
+
+https://images.ua.prom.st/1565087403_w640_h640_poster-mars-explorers.jpg
+
+https://pbs.twimg.com/media/EUl2ZAgUwAEE3pc.jpg
+
+https://pixhost.icu/avaxhome/bd/b9/0053b9bd.jpg
+
+https://pbs.twimg.com/media/ECrjurhWsAEOnXL.jpg:large
+
+https://i.pinimg.com/originals/e4/ba/0d/e4ba0d48e206c43b3e7d05fbeb8eeea3.png

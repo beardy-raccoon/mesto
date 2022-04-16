@@ -11,7 +11,9 @@ export class DeleteCardPopup extends Popup {
   }
 
   _handleEntSubmit = (evt) => {
-    if (evt.key === 'Enter') {this._handleConfirmDeleteCard()};
+    if (evt.key === 'Enter') {
+      this._handleConfirmDeleteCard();
+    }
   }
 
   open() {
