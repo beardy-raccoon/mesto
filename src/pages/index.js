@@ -33,12 +33,13 @@ const getCardElement = (item) => {
   return cardElement
 }
 
+// initialCards это возвращенный res сервера в виде массива объектов карточек
+
 Promise.all([api.getProfile(), api.getInitialCards()])
   .then(([userData, initialCards]) => {
     userInfo.setUserInfo({ userName: userData.name, userAbout: userData.about });
     userInfo.setUserAvatar({ userAvatar: userData.avatar });
     userId = userData._id;
-    // getInitialCards это возвращенный res сервера в виде массива объектов
     initialCards.forEach((item) => {
       section.addItem(getCardElement(item));
     });
@@ -59,7 +60,6 @@ const createCardElement = (data) => {
       api.deleteCard(id)
         .then(() => {
           card.handleDeleteCard();
-          popupDeleteCard.changeBtnText('Готово');
           popupDeleteCard.close();
         })
         .catch(console.log)
@@ -87,7 +87,6 @@ const addNewCard = (data) => {
   api.addCard(data['card-name'], data['card-link'])
     .then(res => {
       section.addNewItem(getCardElement(res));
-      addCardPopup.changeBtnText('Готово');
       addCardPopup.close();
     })
     .catch(console.log)
@@ -103,7 +102,6 @@ const handleProfileFormSubmit = (data) => {
   api.editProfile(data)
     .then(() => {
       userInfo.setUserInfo({ userName: data.name, userAbout: data.about });
-      editProfilePopup.changeBtnText('Готово');
       editProfilePopup.close();
     })
     .catch(console.log)
@@ -115,7 +113,6 @@ const handleSetAvatarFormSubmit = (data) => {
   api.editProfileAvatar(data)
     .then(() => {
       userInfo.setUserAvatar({ userAvatar: data.avatarlink });
-      setAvatarPopup.changeBtnText('Готово');
       setAvatarPopup.close();
     })
     .catch(console.log)
