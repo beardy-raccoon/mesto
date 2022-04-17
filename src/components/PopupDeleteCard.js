@@ -12,7 +12,6 @@ export class PopupDeleteCard extends Popup {
 
   _handleEntSubmit = (evt) => {
     if (evt.key === 'Enter') {
-      evt.preventDefault();
       this._handleConfirmDeleteCard();
     }
   }
@@ -30,7 +29,8 @@ export class PopupDeleteCard extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this._form.addEventListener('submit', () => {
+    this._form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
       this._handleConfirmDeleteCard();
     });
   }
