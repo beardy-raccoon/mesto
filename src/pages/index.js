@@ -13,7 +13,7 @@ import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
 import { UserInfo } from '../components/UserInfo.js';
 import { api } from '../components/Api.js';
-import { DeleteCardPopup } from '../components/DeleteCardPopup.js';
+import { PopupDeleteCard } from '../components/PopupDeleteCard.js';
 
 const popupAddCardFormValidator = new FormValidator(valSet, '.popup_type_add-card');
 const popupProfileFormValidator = new FormValidator(valSet, '.popup_type_edit-profile');
@@ -53,17 +53,17 @@ const createCardElement = (data) => {
   const card = new Card(data, '#element-template', () => {
     previewImagePopup.open({ name: data.name, link: data.link })
   }, (id) => {
-    deleteCardPopup.open();
-    deleteCardPopup.handleConfirmDeleteCard(() => {
-      deleteCardPopup.changeBtnText('Удаление');
+    popupDeleteCard.open();
+    popupDeleteCard.handleConfirmDeleteCard(() => {
+      popupDeleteCard.changeBtnText('Удаление');
       api.deleteCard(id)
         .then(() => {
           card.handleDeleteCard();
-          deleteCardPopup.changeBtnText('Готово');
-          deleteCardPopup.close();
+          popupDeleteCard.changeBtnText('Готово');
+          popupDeleteCard.close();
         })
         .catch(console.log)
-        .finally(() => deleteCardPopup.changeBtnText('Да'));
+        .finally(() => popupDeleteCard.changeBtnText('Да'));
     });
   }, (id) => {
     if (card.isLiked()) {
@@ -142,7 +142,7 @@ const addCardPopup = new PopupWithForm('.popup_type_add-card', handleAddCardForm
 
 const userInfo = new UserInfo({ profileNameSelector: '.profile__title', profileAboutSelector: '.profile__subtitle', profileAvatarSelector: '.profile__avatar-edit-button' });
 
-const deleteCardPopup = new DeleteCardPopup('.popup_type_rYouSure');
+const popupDeleteCard = new PopupDeleteCard('.popup_type_rYouSure');
 
 const setAvatarPopup = new PopupWithForm('.popup_type_set-avatar', handleSetAvatarFormSubmit);
 
@@ -151,7 +151,7 @@ section.renderItems();
 previewImagePopup.setEventListeners();
 editProfilePopup.setEventListeners();
 addCardPopup.setEventListeners();
-deleteCardPopup.setEventListeners();
+popupDeleteCard.setEventListeners();
 setAvatarPopup.setEventListeners();
 
 profileEditButton.addEventListener('click', () => {

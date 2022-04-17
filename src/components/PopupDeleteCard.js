@@ -1,6 +1,6 @@
 import { Popup } from "./Popup.js";
 
-export class DeleteCardPopup extends Popup {
+export class PopupDeleteCard extends Popup {
   constructor(popupSelector) {
     super(popupSelector);
     this._form = this._popup.querySelector('.popup__form');
@@ -12,6 +12,7 @@ export class DeleteCardPopup extends Popup {
 
   _handleEntSubmit = (evt) => {
     if (evt.key === 'Enter') {
+      evt.preventDefault();
       this._handleConfirmDeleteCard();
     }
   }
