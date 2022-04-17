@@ -56,7 +56,7 @@ const createCardElement = (data) => {
   }, (id) => {
     popupDeleteCard.open();
     popupDeleteCard.handleConfirmDeleteCard(() => {
-      popupDeleteCard.changeBtnText('Удаление');
+      popupDeleteCard.changeBtnText('Удаление...');
       api.deleteCard(id)
         .then(() => {
           card.handleDeleteCard();
