@@ -27,25 +27,28 @@ api.getProfile()
     userInfo.setUserAvatar({ userAvatar: res.avatar });
     userId = res._id
   })
+  .catch(console.log);
 
-const getCardElement = (data) => {
+const getCardElement = (item) => {
   const cardElement = createCardElement({
-    name: data.name,
-    link: data.link,
-    likes: data.likes,
-    id: data._id,
+    name: item.name,
+    link: item.link,
+    likes: item.likes,
+    id: item._id,
     userId: userId,
-    ownerId: data.owner._id
+    ownerId: item.owner._id
   });
   return cardElement
 }
 
+// getInitialCards это возвращенный res сервера в виде массива объектов
 api.getInitialCards()
-  .then(initialCards => {
-    initialCards.forEach(data => {
-      section.addItem(getCardElement(data));
+  .then(getInitialCards => {
+    getInitialCards.forEach(item => {
+      section.addItem(getCardElement(item));
     });
   })
+  .catch(console.log);
 
 popupAddCardFormValidator.enableValidation();
 popupProfileFormValidator.enableValidation();
@@ -64,6 +67,7 @@ const createCardElement = (data) => {
           card.handleDeleteCard();
           deleteCardPopup.close();
         })
+        .catch(console.log)
         .finally(() => deleteCardPopup.changeBtnText('Готово'));
     });
   }, (id) => {
@@ -89,6 +93,7 @@ const addNewCard = (data) => {
     .then(res => {
       section.addNewItem(getCardElement(res));
     })
+    .catch(console.log)
     .finally(() => addCardPopup.changeBtnText('Готово'));
 }
 
@@ -104,6 +109,7 @@ const handleProfileFormSubmit = (data) => {
       userInfo.setUserInfo({ userName: data.name, userAbout: data.about });
       editProfilePopup.close();
     })
+    .catch(console.log)
     .finally(() => editProfilePopup.changeBtnText('Готово'));
 }
 
@@ -114,6 +120,7 @@ const handleSetAvatarFormSubmit = (data) => {
       userInfo.setUserAvatar({ userAvatar: data.avatarlink });
       setAvatarPopup.close();
     })
+    .catch(console.log)
     .finally(() => setAvatarPopup.changeBtnText('Готово'));
 }
 
