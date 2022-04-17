@@ -21,14 +21,6 @@ const popupSetAvatarFormValidator = new FormValidator(valSet, '.popup_type_set-a
 
 let userId
 
-api.getProfile()
-  .then(res => {
-    userInfo.setUserInfo({ userName: res.name, userAbout: res.about });
-    userInfo.setUserAvatar({ userAvatar: res.avatar });
-    userId = res._id
-  })
-  .catch(console.log);
-
 const getCardElement = (item) => {
   const cardElement = createCardElement({
     name: item.name,
@@ -41,14 +33,17 @@ const getCardElement = (item) => {
   return cardElement
 }
 
-// getInitialCards это возвращенный res сервера в виде массива объектов
-api.getInitialCards()
-  .then(getInitialCards => {
-    getInitialCards.forEach(item => {
+Promise.all([api.getProfile(), api.getInitialCards()])
+  .then(([userData, initialCards]) => {
+    userInfo.setUserInfo({ userName: userData.name, userAbout: userData.about });
+    userInfo.setUserAvatar({ userAvatar: userData.avatar });
+    userId = userData._id;
+    // getInitialCards это возвращенный res сервера в виде массива объектов
+    initialCards.forEach((item) => {
       section.addItem(getCardElement(item));
     });
   })
-  .catch(console.log);
+  .catch(console.log)
 
 popupAddCardFormValidator.enableValidation();
 popupProfileFormValidator.enableValidation();
@@ -58,17 +53,17 @@ const createCardElement = (data) => {
   const card = new Card(data, '#element-template', () => {
     previewImagePopup.open({ name: data.name, link: data.link })
   }, (id) => {
-    deleteCardPopup.changeBtnText('Да');
     deleteCardPopup.open();
     deleteCardPopup.handleConfirmDeleteCard(() => {
       deleteCardPopup.changeBtnText('Удаление');
       api.deleteCard(id)
         .then(() => {
           card.handleDeleteCard();
+          deleteCardPopup.changeBtnText('Готово');
           deleteCardPopup.close();
         })
         .catch(console.log)
-        .finally(() => deleteCardPopup.changeBtnText('Готово'));
+        .finally(() => deleteCardPopup.changeBtnText('Да'));
     });
   }, (id) => {
     if (card.isLiked()) {
@@ -88,18 +83,19 @@ const createCardElement = (data) => {
 }
 
 const addNewCard = (data) => {
-  addCardPopup.changeBtnText('Сохранение');
+  addCardPopup.changeBtnText('Сохранение...');
   api.addCard(data['card-name'], data['card-link'])
     .then(res => {
       section.addNewItem(getCardElement(res));
+      addCardPopup.changeBtnText('Готово');
+      addCardPopup.close();
     })
     .catch(console.log)
-    .finally(() => addCardPopup.changeBtnText('Готово'));
+    .finally(() => addCardPopup.changeBtnText('Создать'));
 }
 
 const handleAddCardFormSubmit = (data) => {
   addNewCard(data);
-  addCardPopup.close();
 }
 
 const handleProfileFormSubmit = (data) => {
@@ -107,10 +103,11 @@ const handleProfileFormSubmit = (data) => {
   api.editProfile(data)
     .then(() => {
       userInfo.setUserInfo({ userName: data.name, userAbout: data.about });
+      editProfilePopup.changeBtnText('Готово');
       editProfilePopup.close();
     })
     .catch(console.log)
-    .finally(() => editProfilePopup.changeBtnText('Готово'));
+    .finally(() => editProfilePopup.changeBtnText('Сохранить'));
 }
 
 const handleSetAvatarFormSubmit = (data) => {
@@ -118,10 +115,11 @@ const handleSetAvatarFormSubmit = (data) => {
   api.editProfileAvatar(data)
     .then(() => {
       userInfo.setUserAvatar({ userAvatar: data.avatarlink });
+      setAvatarPopup.changeBtnText('Готово');
       setAvatarPopup.close();
     })
     .catch(console.log)
-    .finally(() => setAvatarPopup.changeBtnText('Готово'));
+    .finally(() => setAvatarPopup.changeBtnText('Сохранить'));
 }
 
 
@@ -161,19 +159,16 @@ profileEditButton.addEventListener('click', () => {
   nameInput.value = userName;
   aboutInput.value = userAbout;
   popupProfileFormValidator.resetValidation();
-  editProfilePopup.changeBtnText('Сохранить');
   editProfilePopup.open();
 });
 
 buttonAddCard.addEventListener('click', () => {
   popupAddCardFormValidator.resetValidation();
-  addCardPopup.changeBtnText('Создать');
   addCardPopup.open();
 });
 
 buttonSetAvatar.addEventListener('click', () => {
   popupSetAvatarFormValidator.resetValidation();
-  setAvatarPopup.changeBtnText('Сохранить');
   setAvatarPopup.open();
 });
 
