@@ -19,7 +19,7 @@ const popupAddCardFormValidator = new FormValidator(valSet, '.popup_type_add-car
 const popupProfileFormValidator = new FormValidator(valSet, '.popup_type_edit-profile');
 const popupSetAvatarFormValidator = new FormValidator(valSet, '.popup_type_set-avatar');
 
-let userId
+let userId;
 
 const getCardElement = (item) => {
   const cardElement = createCardElement({
